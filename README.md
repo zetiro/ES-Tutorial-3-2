@@ -1,6 +1,6 @@
-# ES-Tutorial-3
+# ES-Tutorial-4
 
-ElasticSearch 세 번째 튜토리얼을 기술합니다.
+ElasticSearch 네 번째 튜토리얼을 기술합니다.
 
 본 스크립트는 외부 공인망을 기준으로 작성되었습니다.
 
@@ -131,4 +131,3 @@ path.logs: /var/log/elasticsearch 로 설정되어 cluster.name 이 적용된 �
 [ec2-user@ip-xxx-xxx-xxx-xxx ~]$ sudo vi /var/log/elasticsearch/mytuto-es.log
 ```
 
-# ES-Tutorial-4

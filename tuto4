@@ -78,7 +78,7 @@ function start_es_process
 
 if [ -z $1 ]; then
         echo "##################### Menu ##############"
-        echo " $ ./tuto3 [Command]"
+        echo " $ ./tuto4 [Command]"
         echo "#####################%%%%%%##############"
         echo "         1 : install java & elasticsearch packages"
         echo "         2 : configure elasticsearch.yml & jvm.options"
