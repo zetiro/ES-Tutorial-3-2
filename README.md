@@ -45,10 +45,10 @@ Product Version. 6.6.0(2019/02/07 기준 Latest Ver.)
   1) cluster.name, node.name, http.cors.enabled, http.cors.allow-origin 기존장비와 동일 설정
   2) network.host 를 network.bind_host 와 network.publish_host 기존장비와 동일 설정
   3) http.port, transport.tcp.port 기존장비와 동일 설정
-  4) discovery.zen.minimum_master_nodes 기존장비와 동일 설정
-  5) **node.master: false, node.data:true 로 role 추가 설정**
-  6) discovery.zen.ping.unicast.hosts 는 직접 수정 필요, 기존에 설정한 마스터 노드 3대만 설정(데이터노드 아이피 설정 금지)
-  7) 클러스터에 데이터노드 3대가 정상적으로 추가되면 기존 마스터와 데이터노드 롤을 전부 갖고 있는 노드에 node.master: true, node.data:false 로 설정하여 한대씩 프로세스 재시작
+  4) **node.master: false, node.data:true 로 role 추가 설정**
+  5) discovery.zen.minimum_master_nodes 기존장비와 동일 설정
+  6) **discovery.zen.ping.unicast.hosts 는 직접 수정 필요, 기존에 설정한 마스터 노드 3대만 설정(데이터노드 아이피 설정 금지)**
+  7) **클러스터에 데이터노드 3대가 정상적으로 추가되면 기존 마스터와 데이터노드 롤을 전부 갖고 있는 노드에 node.master: true, node.data:false 로 설정하여 한대씩 프로세스 재시작**
     - **./tuto4 2 실행 후 discovery.zen.ping.unicast.hosts 에 기존 장비와 추가했던 노드 3대의 ip:9300 설정 필요**
 
 
