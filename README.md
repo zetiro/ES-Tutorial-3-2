@@ -1,4 +1,4 @@
-# ES-Tutorial-4
+# # ES-Tutorial-4
 
 ElasticSearch 네 번째 튜토리얼을 기술합니다.
 
@@ -20,13 +20,13 @@ Product Version. 6.6.0(2019/02/07 기준 Latest Ver.)
 ```bash
 [ec2-user@ip-xxx-xxx-xxx-xxx ~]$ sudo yum -y install git
 
-[ec2-user@ip-xxx-xxx-xxx-xxx ~]$ git clone https://github.com/benjamin-btn/ES-Tutorial-3.git
+[ec2-user@ip-xxx-xxx-xxx-xxx ~]$ git clone https://github.com/benjamin-btn/ES-Tutorial-4.git
 
-[ec2-user@ip-xxx-xxx-xxx-xxx ~]$ cd ES-Tutorial-3
+[ec2-user@ip-xxx-xxx-xxx-xxx ~]$ cd ES-Tutorial-4
 
-[ec2-user@ip-xxx-xxx-xxx-xxx ES-Tutorial-3]$ ./tuto3
+[ec2-user@ip-xxx-xxx-xxx-xxx ES-Tutorial-4]$ ./tuto4
 ##################### Menu ##############
- $ ./tuto3 [Command]
+ $ ./tuto4 [Command]
 #####################%%%%%%##############
          1 : install java & elasticsearch packages
          2 : configure elasticsearch.yml & jvm.options
@@ -34,22 +34,22 @@ Product Version. 6.6.0(2019/02/07 기준 Latest Ver.)
 #########################################
 
 
-[ec2-user@ip-xxx-xxx-xxx-xxx ES-Tutorial-1]$ ./tuto3 1
+[ec2-user@ip-xxx-xxx-xxx-xxx ES-Tutorial-4]$ ./tuto4 1
 
 ```
 
-## ELK Tutorial 3 - Elasticsearch Node 추가
+## ELK Tutorial 4 - Elasticsearch Data Node 추가
 
 ### Elasticsearch
 * /etc/elasticsearch/elasticsearch.yml
   1) cluster.name, node.name, http.cors.enabled, http.cors.allow-origin 기존장비와 동일 설정
-  2) network.host 를 network.bind_host 와 network.publish_host 로 분리
-  3) node.master, node.data role 추가 설정
-  4) http.port, transport.tcp.port 추가 설정
-  5) discovery.zen.minimum_master_nodes 추가 설정
-  6) discovery.zen.ping.unicast.hosts 는 직접 수정 필요
-  7) 클러스터에 노드 2대가 정상적으로 추가되면 기존 장비의 설정도 동일하게 수정해둡니다.
-    - **./tuto3 2 실행 후 discovery.zen.ping.unicast.hosts 에 기존 장비와 추가하는 노드 2대의 ip:9300 설정 필요**
+  2) network.host 를 network.bind_host 와 network.publish_host 기존장비와 동일 설정
+  3) http.port, transport.tcp.port 기존장비와 동일 설정
+  4) discovery.zen.minimum_master_nodes 기존장비와 동일 설정
+  5) **node.master: false, node.data:true 로 role 추가 설정**
+  6) discovery.zen.ping.unicast.hosts 는 직접 수정 필요, 기존에 설정한 마스터 노드 3대만 설정(데이터노드 아이피 설정 금지)
+  7) 클러스터에 데이터노드 3대가 정상적으로 추가되면 기존 마스터와 데이터노드 롤을 전부 갖고 있는 노드에 node.master: true, node.data:false 로 설정하여 한대씩 프로세스 재시작
+    - **./tuto4 2 실행 후 discovery.zen.ping.unicast.hosts 에 기존 장비와 추가했던 노드 3대의 ip:9300 설정 필요**
 
 
 * /etc/elasticsearch/jvm.options
@@ -69,7 +69,7 @@ http.cors.enabled: true
 http.cors.allow-origin: "*"
 
 ### ES Node Role Settings
-node.master: true
+node.master: false
 node.data: true
 
 ### ES Port Settings
@@ -83,9 +83,9 @@ discovery.zen.minimum_master_nodes: 2
 [ec2-user@ip-xxx-xxx-xxx-xxx ~]$ sudo vi /etc/elasticsearch/jvm.options
 
 - -Xms1g
-+ -Xms2g
++ -Xms4g
 - -Xmx1g
-+ -Xmx2g
++ -Xmx4g
 ```
 
 ## Smoke Test
