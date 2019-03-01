@@ -54,7 +54,7 @@ Product Version. 6.6.0(2019/02/07 기준 Latest Ver.)
 
 ### For ClusterName & Node Name
 cluster.name: mytuto-es
-node.name: ip-172-31-13-110
+node.name: data-ip-172-31-13-110
 
 ### For Head
 http.cors.enabled: true
@@ -125,7 +125,7 @@ node.data: false
 ```bash
 [ec2-user@ip-xxx-xxx-xxx-xxx ES-Tutorial-4-1]$ curl localhost:9200
 {
-  "name" : "ip-172-31-13-110",
+  "name" : "data-ip-172-31-13-110",
   "cluster_name" : "mytuto-es",
   "cluster_uuid" : "fzHl1JNvRd-3KHlleS1WIw",
   "version" : {
