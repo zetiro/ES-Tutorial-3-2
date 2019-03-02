@@ -106,6 +106,7 @@ discovery.zen.ping.unicast.hosts: [  "{IP1}:9300",  "{IP2}:9300",  "{IP3}:9300",
 ```
 
 **클러스터에 데이터노드 3대가 정상적으로 추가되면 기존 마스터와 데이터노드 롤을 전부 갖고 있는 노드에 node.master: true, node.data:false 로 설정하여 한대씩 프로세스 재시작**
+**주의할 점은 마스터 노드를 재시작 할 때 반드시 클러스터가 그린이 된 이후 다음 마스터 노드를 재시작**
 
 ```bash
 ### ES Node Role Settings
@@ -125,9 +126,9 @@ node.data: false
 ```bash
 [ec2-user@ip-xxx-xxx-xxx-xxx ES-Tutorial-4-1]$ curl localhost:9200
 {
-  "name" : "data-ip-172-31-13-110",
+  "name" : "data-ip-172-31-10-90",
   "cluster_name" : "mytuto-es",
-  "cluster_uuid" : "fzHl1JNvRd-3KHlleS1WIw",
+  "cluster_uuid" : "LTfRfk3KRLS31kQDROVu9A",
   "version" : {
     "number" : "6.6.0",
     "build_flavor" : "default",
