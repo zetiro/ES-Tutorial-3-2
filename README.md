@@ -38,7 +38,7 @@ Product Version. 6.6.0(2019/02/07 기준 Latest Ver.)
 ## ELK Tutorial 4-1 - Elasticsearch Data Node 추가
 
 ### Elasticsearch
-/etc/elasticsearch/elasticsearch.yml
+##### /etc/elasticsearch/elasticsearch.yml
 
 1) cluster.name, node.name, http.cors.enabled, http.cors.allow-origin 기존장비와 동일 설정
 2) network.host 를 network.bind_host 와 network.publish_host 로 분리, 기존장비와 동일 설정
@@ -86,8 +86,8 @@ discovery.zen.ping.unicast.hosts: [  "{IP1}:9300",  "{IP2}:9300",  "{IP3}:9300",
 
 ```
 
-/etc/elasticsearch/jvm.options
-1) Xms1g, Xmx1g 를 물리 메모리의 절반으로 수정
+##### /etc/elasticsearch/jvm.options
+8) Xms1g, Xmx1g 를 물리 메모리의 절반으로 수정
 
 ```bash
 [ec2-user@ip-xxx-xxx-xxx-xxx ES-Tutorial-4-1]$ sudo vi /etc/elasticsearch/jvm.options
@@ -98,14 +98,15 @@ discovery.zen.ping.unicast.hosts: [  "{IP1}:9300",  "{IP2}:9300",  "{IP3}:9300",
 
 ```
 
-두 파일 모두 수정이 완료되었으면 추가할 노드 3대에서 스크립트 3번을 실행하여 ES 프로세스 시작, 클러스터에 잘 조인되는지 확인
+9) 두 파일 모두 수정이 완료되었으면 추가할 노드 3대에서 스크립트 3번을 실행하여 ES 프로세스 시작, 클러스터에 잘 조인되는지 확인
 
 ```bash
 [ec2-user@ip-xxx-xxx-xxx-xxx ES-Tutorial-4-1]$ ./tuto4-1 3
 
 ```
 
-**클러스터에 데이터노드 3대가 정상적으로 추가되면 기존 마스터와 데이터노드 롤을 전부 갖고 있는 노드에 node.master: true, node.data:false 로 설정하여 한대씩 프로세스 재시작**
+10) **클러스터에 데이터노드 3대가 정상적으로 추가되면 기존 마스터와 데이터노드 롤을 전부 갖고 있는 노드에 node.master: true, node.data:false 로 설정하여 한대씩 프로세스 재시작**
+
 **주의할 점은 마스터 노드를 재시작 할 때 반드시 클러스터가 그린이 된 이후 다음 마스터 노드를 재시작**
 
 ```bash
