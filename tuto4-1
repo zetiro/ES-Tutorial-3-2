@@ -52,6 +52,13 @@ function configure_es_yaml
     sudo echo "### For ClusterName & Node Name" | sudo tee -a ${ES_ETC}/${ES_MYML} > /dev/null
     sudo echo "cluster.name: mytuto-es" | sudo tee -a ${ES_ETC}/${ES_MYML} > /dev/null
     sudo echo "node.name: data-$ES_NODENAME" | sudo tee -a ${ES_ETC}/${ES_MYML} > /dev/null
+    sudo echo "" | sudo tee -a ${ES_ETC}/${ES_MYML} > /dev/null
+
+    sudo echo "### For Head" | sudo tee -a ${ES_ETC}/${ES_MYML} > /dev/null
+    sudo echo "http.cors.enabled: true" | sudo tee -a ${ES_ETC}/${ES_MYML} > /dev/null
+    sudo echo "http.cors.allow-origin: \"*\"" | sudo tee -a ${ES_ETC}/${ES_MYML} > /dev/null
+    sudo echo "" | sudo tee -a ${ES_ETC}/${ES_MYML} > /dev/null
+
     sudo echo "### For Response by External Request" | sudo tee -a ${ES_ETC}/${ES_MYML} > /dev/null
     sudo echo "network.bind_host: 0.0.0.0" | sudo tee -a ${ES_ETC}/${ES_MYML} > /dev/null
     sudo echo "network.publish_host: $ES_NODEIP" | sudo tee -a ${ES_ETC}/${ES_MYML} > /dev/null

@@ -1,8 +1,4 @@
 
-### For Head
-http.cors.enabled: true
-http.cors.allow-origin: "*"
-
 ### ES Port Settings
 http.port: 9200
 transport.tcp.port: 9300
