@@ -1,6 +1,6 @@
 # ES-Tutorial-3-2
 
-ElasticSearch 네 번째-1 튜토리얼을 기술합니다.
+ElasticSearch 세 번째-2 튜토리얼을 기술합니다.
 
 본 스크립트는 외부 공인망을 기준으로 작성되었습니다.
 
