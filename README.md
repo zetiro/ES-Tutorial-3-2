@@ -1,4 +1,4 @@
-# ES-Tutorial-4-1
+# ES-Tutorial-3-2
 
 ElasticSearch 네 번째-1 튜토리얼을 기술합니다.
 
@@ -20,11 +20,11 @@ Product Version. 6.6.0(2019/02/07 기준 Latest Ver.)
 ```bash
 [ec2-user@ip-xxx-xxx-xxx-xxx ~]$ sudo yum -y install git
 
-[ec2-user@ip-xxx-xxx-xxx-xxx ~]$ git clone https://github.com/benjamin-btn/ES-Tutorial-4-1.git
+[ec2-user@ip-xxx-xxx-xxx-xxx ~]$ git clone https://github.com/benjamin-btn/ES-Tutorial-3-2.git
 
-[ec2-user@ip-xxx-xxx-xxx-xxx ~]$ cd ES-Tutorial-4-1
+[ec2-user@ip-xxx-xxx-xxx-xxx ~]$ cd ES-Tutorial-3-2
 
-[ec2-user@ip-xxx-xxx-xxx-xxx ES-Tutorial-4-1]$ ./tuto4-1
+[ec2-user@ip-xxx-xxx-xxx-xxx ES-Tutorial-3-2]$ ./tuto4-1
 ##################### Menu ##############
  $ ./tuto4-1 [Command]
 #####################%%%%%%##############
@@ -45,11 +45,11 @@ Product Version. 6.6.0(2019/02/07 기준 Latest Ver.)
 3) http.port, transport.tcp.port 기존장비와 동일 설정
 
 ```bash
-[ec2-user@ip-xxx-xxx-xxx-xxx ES-Tutorial-4-1]$ ./tuto4-1 1
+[ec2-user@ip-xxx-xxx-xxx-xxx ES-Tutorial-3-2]$ ./tuto4-1 1
 
-[ec2-user@ip-xxx-xxx-xxx-xxx ES-Tutorial-4-1]$ ./tuto4-1 2
+[ec2-user@ip-xxx-xxx-xxx-xxx ES-Tutorial-3-2]$ ./tuto4-1 2
 
-[ec2-user@ip-xxx-xxx-xxx-xxx ES-Tutorial-4-1]$ sudo vi /etc/elasticsearch/elasticsearch.yml
+[ec2-user@ip-xxx-xxx-xxx-xxx ES-Tutorial-3-2]$ sudo vi /etc/elasticsearch/elasticsearch.yml
 
 
 ### For ClusterName & Node Name
@@ -90,7 +90,7 @@ discovery.zen.ping.unicast.hosts: [  "{IP1}:9300",  "{IP2}:9300",  "{IP3}:9300",
 8) Xms1g, Xmx1g 를 물리 메모리의 절반으로 수정
 
 ```bash
-[ec2-user@ip-xxx-xxx-xxx-xxx ES-Tutorial-4-1]$ sudo vi /etc/elasticsearch/jvm.options
+[ec2-user@ip-xxx-xxx-xxx-xxx ES-Tutorial-3-2]$ sudo vi /etc/elasticsearch/jvm.options
 
 
 -Xms4g
@@ -101,7 +101,7 @@ discovery.zen.ping.unicast.hosts: [  "{IP1}:9300",  "{IP2}:9300",  "{IP3}:9300",
 9) 두 파일 모두 수정이 완료되었으면 추가할 노드 3대에서 스크립트 3번을 실행하여 ES 프로세스 시작, 클러스터에 잘 조인되는지 확인
 
 ```bash
-[ec2-user@ip-xxx-xxx-xxx-xxx ES-Tutorial-4-1]$ ./tuto4-1 3
+[ec2-user@ip-xxx-xxx-xxx-xxx ES-Tutorial-3-2]$ ./tuto4-1 3
 
 ```
 
@@ -125,7 +125,7 @@ node.data: false
 ### Elasticsearch
 
 ```bash
-[ec2-user@ip-xxx-xxx-xxx-xxx ES-Tutorial-4-1]$ curl localhost:9200
+[ec2-user@ip-xxx-xxx-xxx-xxx ES-Tutorial-3-2]$ curl localhost:9200
 {
   "name" : "data-ip-172-31-10-90",
   "cluster_name" : "mytuto-es",
@@ -160,6 +160,6 @@ path.logs: /var/log/elasticsearch 로 설정되어 cluster.name 이 적용된 �
 위의 경우에는 /var/log/elasticsearch/mytuto-es.log 에서 확인할 수 있습니다.
 
 ```bash
-[ec2-user@ip-xxx-xxx-xxx-xxx ES-Tutorial-4-1]$ sudo vi /var/log/elasticsearch/mytuto-es.log
+[ec2-user@ip-xxx-xxx-xxx-xxx ES-Tutorial-3-2]$ sudo vi /var/log/elasticsearch/mytuto-es.log
 ```
 
