@@ -17,6 +17,8 @@ Product Version. 6.6.0(2019/02/07 기준 Latest Ver.)
 
 이 튜토리얼에서는 rpm 파일을 이용하여 실습합니다.
 
+Data Node 1~3번 장비에서 실습합니다.
+
 ```bash
 [ec2-user@ip-xxx-xxx-xxx-xxx ~]$ sudo yum -y install git
 
@@ -24,9 +26,9 @@ Product Version. 6.6.0(2019/02/07 기준 Latest Ver.)
 
 [ec2-user@ip-xxx-xxx-xxx-xxx ~]$ cd ES-Tutorial-3-2
 
-[ec2-user@ip-xxx-xxx-xxx-xxx ES-Tutorial-3-2]$ ./tuto4-1
+[ec2-user@ip-xxx-xxx-xxx-xxx ES-Tutorial-3-2]$ ./tuto3-2
 ##################### Menu ##############
- $ ./tuto4-1 [Command]
+ $ ./tuto3-2 [Command]
 #####################%%%%%%##############
          1 : install java & elasticsearch packages
          2 : configure elasticsearch.yml & jvm.options
@@ -35,7 +37,7 @@ Product Version. 6.6.0(2019/02/07 기준 Latest Ver.)
 
 ```
 
-## ELK Tutorial 4-1 - Elasticsearch Data Node 추가
+## ELK Tutorial 3-2 - Elasticsearch Data Node 추가
 
 ### Elasticsearch
 ##### /etc/elasticsearch/elasticsearch.yml
@@ -45,9 +47,9 @@ Product Version. 6.6.0(2019/02/07 기준 Latest Ver.)
 3) http.port, transport.tcp.port 기존장비와 동일 설정
 
 ```bash
-[ec2-user@ip-xxx-xxx-xxx-xxx ES-Tutorial-3-2]$ ./tuto4-1 1
+[ec2-user@ip-xxx-xxx-xxx-xxx ES-Tutorial-3-2]$ ./tuto3-2 1
 
-[ec2-user@ip-xxx-xxx-xxx-xxx ES-Tutorial-3-2]$ ./tuto4-1 2
+[ec2-user@ip-xxx-xxx-xxx-xxx ES-Tutorial-3-2]$ ./tuto3-2 2
 
 [ec2-user@ip-xxx-xxx-xxx-xxx ES-Tutorial-3-2]$ sudo vi /etc/elasticsearch/elasticsearch.yml
 
@@ -73,7 +75,7 @@ transport.tcp.port: 9300
 4) **node.master: false, node.data:true 로 role 추가 설정**
 5) discovery.zen.minimum_master_nodes 기존장비와 동일 설정
 6) **discovery.zen.ping.unicast.hosts 는 직접 수정 필요, 기존에 설정한 마스터 노드 3대만 설정(데이터노드 아이피 설정 금지)**
-7) **./tuto4-1 ./tuto4-1 2 실행 후 discovery.zen.ping.unicast.hosts 에 기존 장비와 추가했던 노드 3대의 ip:9300 설정 필요**
+7) **./tuto3-2 ./tuto3-2 2 실행 후 discovery.zen.ping.unicast.hosts 에 기존 장비와 추가했던 노드 3대의 ip:9300 설정 필요**
 
 ```bash
 ### ES Node Role Settings
@@ -101,7 +103,7 @@ discovery.zen.ping.unicast.hosts: [  "{IP1}:9300",  "{IP2}:9300",  "{IP3}:9300",
 9) 두 파일 모두 수정이 완료되었으면 추가할 노드 3대에서 스크립트 3번을 실행하여 ES 프로세스 시작, 클러스터에 잘 조인되는지 확인
 
 ```bash
-[ec2-user@ip-xxx-xxx-xxx-xxx ES-Tutorial-3-2]$ ./tuto4-1 3
+[ec2-user@ip-xxx-xxx-xxx-xxx ES-Tutorial-3-2]$ ./tuto3-2 3
 
 ```
 
